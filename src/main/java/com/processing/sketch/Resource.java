@@ -2,12 +2,12 @@ package com.processing.sketch;
 
 import processing.core.PApplet;
 
-public class AI {
+public class Resource {
 
     private final PApplet p;
 
-
-    public AI(PApplet p) {
+    public Resource(PApplet p) {
         this.p = p;
+
     }
 }

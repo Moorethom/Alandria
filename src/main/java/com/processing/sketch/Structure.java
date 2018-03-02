@@ -2,13 +2,13 @@ package com.processing.sketch;
 
 import processing.core.PApplet;
 
-public class Structures {
+public class Structure {
 
 
     private final PApplet p;
     private int sType;
 
-    public Structures(PApplet p, int structureType){
+    public Structure(PApplet p, int structureType){
         this.p = p;
         this.sType = structureType;
     }

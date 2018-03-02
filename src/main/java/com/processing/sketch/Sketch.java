@@ -4,7 +4,6 @@ import processing.core.PApplet;
 
 import java.util.ArrayList;
 
-
 public class Sketch extends PApplet {
 
 
@@ -23,11 +22,11 @@ public class Sketch extends PApplet {
         hud = new Hud(this);
         players.add(new Player(this));
 
-
     }
 
-    public void draw() {
+    public void draw() { //Main Draw function to call shit
     }
+
 
     public static void main(String[] args) {
         PApplet.main("com.processing.sketch.Sketch", args);

@@ -8,9 +8,9 @@ public class Player {
 
     private final PApplet p;
 
-    ArrayList<Structures> pStructures = new ArrayList<Structures>();
+    ArrayList<Structure> pStructures = new ArrayList<Structure>();
     ArrayList<Unit> units = new ArrayList<Unit>();
-
+    ArrayList<Resource> resources = new ArrayList<Resource>();
 
     public Player(PApplet p) {
         this.p = p;
