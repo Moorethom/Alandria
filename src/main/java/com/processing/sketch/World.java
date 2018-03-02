@@ -11,15 +11,16 @@ public class World {
     ArrayList<Player> players = new ArrayList<Player>();
 
     void setup() {
-        players.add(new Player(p));
+        players.add(new Player(p)); //TODO this might fuck all my shit up and will/ might need changing
         p.background(255);
-    } //setup for the world
+    }
 
     void draw() {
 
-        //for (Player players : p) {
-            //draw the structures and units in here
-        //}
+        if (players == null) return;
+        for (Player play : players) {
+            play.draw();
+        }
 
     }
     //add the world generation here

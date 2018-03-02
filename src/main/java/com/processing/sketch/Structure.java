@@ -12,4 +12,7 @@ public class Structure {
         this.p = p;
         this.sType = structureType;
     }
+
+    public void draw() {
+    }
 }

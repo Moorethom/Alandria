@@ -8,4 +8,8 @@ public class Mil extends Unit {
     public Mil(PApplet p, int xPos, int yPos, int type) {
         super(p, xPos, yPos, type);
     }
+
+    void draw() {
+        p.rect(pos.x,pos.y,16,16);
+    }
 }

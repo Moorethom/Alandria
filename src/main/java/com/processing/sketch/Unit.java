@@ -7,19 +7,18 @@ import processing.core.PVector;
 
 public abstract class Unit {
 
-    private final PApplet p;
-    private PVector pos;
-    private PVector vel;
-    private PVector accel;
-    private float mass = 1;
-    private int unitType;
+    final PApplet p;
+    PVector pos;
+    PVector vel;
+    PVector accel;
+    float mass = 1;
+    int unitType;
 
     public Unit(PApplet p, int xPos, int yPos, int type) {
-        this.pos.x = xPos;
-        this.pos.y = yPos;
-        this.unitType = type;
+        pos = new PVector(xPos, yPos);
         vel = new PVector(0, 0);
         accel = new PVector(0, 0);
+        this.unitType = type;
         this.p = p;
     }
 
@@ -30,24 +29,10 @@ public abstract class Unit {
     }
 
     void applyForce(PVector force) {
-        int xMax = getMaxSpeed();
-        int yMax = xMax;
+        int max = getMaxSpeed();
 
-        if (vel.x >= xMax ) {
-            vel.x = xMax;
-        } else if (vel.x <= -xMax ) {
-            vel.x = -xMax;
-        }
+        force.limit(max);
 
-        //Terminal velocity y value
-
-        if (vel.y >= yMax ) {
-            vel.y = yMax;
-        } else if (vel.y <= -yMax ) {
-            vel.y = -yMax;
-        }
-
-        //Calulations
         PVector f = PVector.div(force, mass);
         accel.add(f);
     }
@@ -58,4 +43,6 @@ public abstract class Unit {
         if(unitType >=100 && unitType <= 199) { max = 15; }
         return max;
     }
+
+    abstract void draw();
 }
