@@ -1,21 +1,24 @@
 package com.processing.sketch.Resources;
 
+import com.processing.sketch.Player;
 import processing.core.PApplet;
 
 public abstract class Resource {
 
     private final PApplet p;
-    private int amount;
+    public float amount;
+    public Player player;
 
-    public Resource(PApplet p) {
-        amount = 0;
+    public Resource(PApplet p, Player player) {
         this.p = p;
+        this.player = player;
+        amount = 0;
     }
 
-    public int getAmount(){
+    public float getAmount(){
         return amount;
     }
 
-    public void update(){}
+    public abstract void update();
 
 }
