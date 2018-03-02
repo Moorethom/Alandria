@@ -8,9 +8,9 @@ public class Sketch extends PApplet {
 
 
     World world;
-    AI ai;
+    AI ai; //This will probibly be a useless class so it can fuck off
     Hud hud;
-    ArrayList<Player> players = new ArrayList<Player>();
+
 
 
     public void settings() {
@@ -20,13 +20,13 @@ public class Sketch extends PApplet {
     public void setup() {
         world = new World(this);
         hud = new Hud(this);
-        players.add(new Player(this));
-
+        world.setup();
     }
+
 
     public void draw() { //Main Draw function to call shit
+        world.draw();
     }
-
 
     public static void main(String[] args) {
         PApplet.main("com.processing.sketch.Sketch", args);

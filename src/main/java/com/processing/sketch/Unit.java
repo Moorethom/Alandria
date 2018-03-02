@@ -3,6 +3,8 @@ package com.processing.sketch;
 import processing.core.PApplet;
 import processing.core.PVector;
 
+
+
 public abstract class Unit {
 
     private final PApplet p;
@@ -52,7 +54,8 @@ public abstract class Unit {
 
     int getMaxSpeed(){
         int max = 0;
-
+        if(unitType >=0 && unitType <= 99) { max = 10; }
+        if(unitType >=100 && unitType <= 199) { max = 15; }
         return max;
     }
 }
