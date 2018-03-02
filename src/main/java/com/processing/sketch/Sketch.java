@@ -18,6 +18,8 @@ public class Sketch extends PApplet {
     }
 
     public void setup() {
+        frameRate(60);
+
         world = new World(this);
         hud = new Hud(this);
         world.setup();

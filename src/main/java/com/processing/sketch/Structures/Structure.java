@@ -1,12 +1,13 @@
-package com.processing.sketch;
+package com.processing.sketch.Structures;
 
 import processing.core.PApplet;
 
-public class Structure {
+public abstract class Structure {
 
 
     private final PApplet p;
     private int sType;
+    private int health;
 
     public Structure(PApplet p, int structureType){
         this.p = p;
@@ -14,5 +15,8 @@ public class Structure {
     }
 
     public void draw() {
+    }
+
+    public void update() {
     }
 }

@@ -1,7 +1,6 @@
-package com.processing.sketch;
+package com.processing.sketch.Units;
 
 import processing.core.PApplet;
-import processing.core.PVector;
 
 public class Civ extends Unit{
 
@@ -11,7 +10,7 @@ public class Civ extends Unit{
     }
 
 
-    void draw() {
-
+    public void draw() {
+        p.rect(pos.x,pos.y,16,16);
     }
 }

@@ -1,6 +1,5 @@
-package com.processing.sketch;
+package com.processing.sketch.Units;
 import processing.core.PApplet;
-import processing.core.PVector;
 
 public class Mil extends Unit {
 
@@ -9,7 +8,7 @@ public class Mil extends Unit {
         super(p, xPos, yPos, type);
     }
 
-    void draw() {
+    public void draw() {
         p.rect(pos.x,pos.y,16,16);
     }
 }

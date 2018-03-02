@@ -1,4 +1,4 @@
-package com.processing.sketch;
+package com.processing.sketch.Units;
 
 import processing.core.PApplet;
 import processing.core.PVector;
@@ -44,5 +44,5 @@ public abstract class Unit {
         return max;
     }
 
-    abstract void draw();
+    public abstract void draw();
 }
