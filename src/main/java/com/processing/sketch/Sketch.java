@@ -16,6 +16,7 @@ public class Sketch extends PApplet {
 
     public void settings() {
         size(1280,720, P2D);
+
     }
 
     public void setup() {
@@ -28,6 +29,7 @@ public class Sketch extends PApplet {
 
 
     public void draw() { //Main Draw function to call shit
+        background(255);
         world.draw();
     }
 

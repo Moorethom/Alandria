@@ -12,4 +12,17 @@ public class Metal extends Resource {
     public void update() {
 
     }
+
+    public void addWealth(double metal) {
+        amount += metal;
+    }
+
+    private void metalGain() {
+        double tempMod;
+        tempMod = player.research.activeMetalResearch();
+        //calls a function inside the structures to check what metal structures are active and there output then times it by the tempMod
+
+    }
+
+
 }

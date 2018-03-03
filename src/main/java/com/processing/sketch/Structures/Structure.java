@@ -1,22 +1,24 @@
 package com.processing.sketch.Structures;
 
 import processing.core.PApplet;
+import processing.core.PVector;
 
 public abstract class Structure {
 
 
-    private final PApplet p;
-    private int sType;
+    public final PApplet p;
     private int health;
 
-    public Structure(PApplet p, int structureType){
+    public PVector pos;
+
+
+    public Structure(PApplet p, int xPos, int yPos){
         this.p = p;
-        this.sType = structureType;
+        this.pos = new PVector(xPos, yPos);
     }
 
-    public void draw() {
-    }
+    public abstract void draw();
 
-    public void update() {
-    }
+    public abstract void update();
+
 }
