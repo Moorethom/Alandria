@@ -1,6 +1,5 @@
 package com.processing.sketch;
 
-import java.util.Timer;
 import processing.core.PApplet;
 
 import java.util.ArrayList;
