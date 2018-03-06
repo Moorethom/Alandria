@@ -76,7 +76,7 @@ public abstract class Unit {
 
     public abstract void draw();
 
-    public void newCol(){  //TODO Remove this function
+    public void newCol(){
         col = p.color(255,0,0);
     }
 

@@ -25,16 +25,11 @@ public class Player {
     private int popCap = 100000;
     private double popMod = 0; //The final addition population increase per tick
     private double baseMod = 0.00006; //The base modifier of the population growth
-    public double deathTime = 0.002; //The rate at which units age
+    public double deathTime = 0.002; //The rate at which units age //0.002
 
     private double newPop = 0; //1 = new pop
 
     public Color playerCol; //Player color
-
-
-    //Test variables
-    private int count = 0;
-    private int count2 = 0;
 
 
     public Player(PApplet p, Color c) {
@@ -68,21 +63,15 @@ public class Player {
             }
         }
         if (units != null) {
-            //Fields
-            int count = 0;
-            int killUnits = -1;
 
-            for (Unit u : units) {
-                u.update();
-                u.draw();
-                if (u.checkIfDead() == true) {
-                    killUnits = count-units.size();
-                    u.newCol();
+            for (int i = units.size()-1; i >= 0; i--) {
+                units.get(i).update();
+                units.get(i).draw();
+
+                if (units.get(i).checkIfDead() == true) {
+                    killUnit(i);
                 }
-                count++;
             }
-            if(killUnits < 0)return;
-            killUnit(count);
         }
     }
 
@@ -105,23 +94,18 @@ public class Player {
 
     public void updatePopMod() {
         popMod = getPopulation()*baseMod;
-        p.println(newPop);
     }
 
     public void createNewPop() {
 
-        if (newPop >= 1) { //Counts can be removed
-            count++;
+        if (newPop >= 1) {
             newPop--;
-            if (count * 18 > 1920) {
-                count = 0;
-                count2++;
-            }
-            units.add(new Workless(p, count * 18, count2 * 18 + 18, 0, this)); //TODO change the create new pop to captial building position
+            units.add(new Workless(p, 18, 18, 0, this)); //TODO change the create new pop to captial building position
         }
     }
 
     public void killUnit(int u) {
-        //units.remove(u); //TODO un comment this to fix it
+        units.remove(u);
+
     }
 }
