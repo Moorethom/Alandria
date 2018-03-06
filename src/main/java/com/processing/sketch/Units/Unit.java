@@ -10,15 +10,22 @@ import java.awt.*;
 public abstract class Unit {
 
     public final PApplet p;
+
     public PVector pos;
     public PVector vel;
     public PVector accel;
     public float mass = 1;
+    public float maxSpeed = 30;
+
     public int unitType;
+
     public double age;
     public double maxAge;
+    public int maxAgeMod = 60;
+
     public Player player;
     public int col;
+
 
 
     public Unit(PApplet p, int xPos, int yPos, int type, Player player) {
@@ -35,7 +42,7 @@ public abstract class Unit {
     }
 
     private void getMaxAge() {
-        maxAge = p.random(45,75);
+        maxAge = p.random(maxAgeMod-25,maxAgeMod+25);
     }
 
     public void update() {
@@ -59,19 +66,11 @@ public abstract class Unit {
     }
 
     void applyForce(PVector force) {
-        int max = getMaxSpeed();
 
-        force.limit(max);
+        force.limit(maxSpeed);
 
         PVector f = PVector.div(force, mass);
         accel.add(f);
-    }
-
-    int getMaxSpeed(){
-        int max = 0;
-        if(unitType >=0 && unitType <= 99) { max = 10; }
-        if(unitType >=100 && unitType <= 199) { max = 15; }
-        return max;
     }
 
     public abstract void draw();

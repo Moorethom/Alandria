@@ -1,11 +1,8 @@
 package com.processing.sketch;
 
 import com.processing.sketch.Resources.*;
-import com.processing.sketch.Structures.House;
 import com.processing.sketch.Structures.Structure;
-import com.processing.sketch.Units.CivUnits.Civ;
 import com.processing.sketch.Units.CivUnits.Workless;
-import com.processing.sketch.Units.MilUnits.FootMan;
 import com.processing.sketch.Units.Unit;
 import processing.core.PApplet;
 
@@ -22,12 +19,13 @@ public class Player {
     public ArrayList<Resource> resources = new ArrayList<Resource>();
     public Research research;
 
-    private int popCap = 100000;
-    private double popMod = 0; //The final addition population increase per tick
-    private double baseMod = 0.00006; //The base modifier of the population growth
-    public double deathTime = 0.002; //The rate at which units age //0.002
+    private int popCap = 300; //The population the sigmoid function aims to reach (Use to increase Pop)
+    private double baseMod = 0.00006; //The rate of growth (Use to increase the rate of growth or decrease)
+    private double popMod = 0; //This is the value gained from the sigmoid function
 
     private double newPop = 0; //1 = new pop
+
+    public double deathTime = 0.002; //The rate at which units age
 
     public Color playerCol; //Player color
 
@@ -54,6 +52,7 @@ public class Player {
 
     public void draw() {
 
+
         this.update();
 
         if (pStructures != null) {
@@ -62,13 +61,14 @@ public class Player {
                 s.draw();
             }
         }
+
         if (units != null) {
 
             for (int i = units.size()-1; i >= 0; i--) {
-                units.get(i).update();
-                units.get(i).draw();
-
-                if (units.get(i).checkIfDead() == true) {
+                Unit currentUnit = units.get(i);
+                currentUnit.update();
+                currentUnit.draw();
+                if (units.get(i).checkIfDead()) {
                     killUnit(i);
                 }
             }
@@ -93,7 +93,7 @@ public class Player {
     }
 
     public void updatePopMod() {
-        popMod = getPopulation()*baseMod;
+        popMod = (getPopulation()*baseMod)*(1-(getPopulation()/popCap)); //This models the sigmoid function to add to the population
     }
 
     public void createNewPop() {
@@ -104,8 +104,7 @@ public class Player {
         }
     }
 
-    public void killUnit(int u) {
-        units.remove(u);
-
+    public void killUnit(int i) {
+        units.remove(i);
     }
 }
