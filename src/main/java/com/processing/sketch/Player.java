@@ -52,7 +52,6 @@ public class Player {
 
     public void draw() {
 
-
         this.update();
 
         if (pStructures != null) {
@@ -63,7 +62,6 @@ public class Player {
         }
 
         if (units != null) {
-
             for (int i = units.size()-1; i >= 0; i--) {
                 Unit currentUnit = units.get(i);
                 currentUnit.update();
@@ -97,7 +95,6 @@ public class Player {
     }
 
     public void createNewPop() {
-
         if (newPop >= 1) {
             newPop--;
             units.add(new Workless(p, 18, 18, 0, this)); //TODO change the create new pop to captial building position

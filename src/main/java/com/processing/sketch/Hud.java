@@ -7,6 +7,5 @@ public class Hud {
 
     public Hud(PApplet p) {
         this.p = p;
-        
     }
 }

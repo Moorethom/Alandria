@@ -14,6 +14,7 @@ public abstract class Unit {
     public PVector pos;
     public PVector vel;
     public PVector accel;
+
     public float mass = 1;
     public float maxSpeed = 30;
 
