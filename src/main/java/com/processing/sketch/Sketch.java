@@ -24,22 +24,30 @@ public class Sketch extends PApplet {
         frameRate(60);
 
         world = new World(this);
-        hud = new Hud(this);
+        hud = new Hud(this, width, height);
         world.setup();
 
         camera = new Camera(this, width, height);
         keys = new boolean[4];
-        cameraSpeed = 3;
+        cameraSpeed = 3; //Speeds the camera moves
     }
 
 
     public void draw() { //Main Draw function to call shit
         background(255);
 
+        //Camera stuff
+        pushMatrix();
         updateCamera();
         translate(-camera.pos.x, -camera.pos.y);
 
+        //World stuff
         world.draw();
+        popMatrix();
+
+        //Hud stuff
+        hud.update();
+        hud.draw();
     }
 
 
