@@ -56,10 +56,7 @@ public abstract class Unit {
     }
 
     public boolean checkIfDead() {
-        if(age>=maxAge){
-            return true;
-        }
-        return false;
+        return age >= maxAge;
     }
 
     protected void growOlder() {

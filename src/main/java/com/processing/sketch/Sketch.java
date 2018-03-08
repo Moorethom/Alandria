@@ -34,11 +34,15 @@ public class Sketch extends PApplet {
 
         keys = new boolean[4];
         cameraSpeed = 3; //Speeds the camera moves
+
+        text("hello",(width/2),(height/5));
+
+
     }
 
 
     public void draw() { //Main Draw function to call shit
-        background(255);
+        //background(255);
 
         //Camera stuff
         pushMatrix(); //Opens Matrix
@@ -52,6 +56,11 @@ public class Sketch extends PApplet {
         //Hud stuff
         hud.update();
         hud.draw();
+
+        fill(0);
+        text("hello",1000,500);
+        text("555",500,500);
+        text(555,500,500);
     }
 
 
