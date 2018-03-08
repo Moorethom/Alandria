@@ -1,7 +1,9 @@
 package com.processing.sketch.Resources;
 
+import com.processing.sketch.Hud;
 import com.processing.sketch.Player;
 import processing.core.PApplet;
+
 
 public abstract class Resource {
 

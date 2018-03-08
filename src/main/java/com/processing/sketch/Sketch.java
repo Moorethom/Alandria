@@ -1,7 +1,6 @@
 package com.processing.sketch;
 
 import processing.core.PApplet;
-import com.processing.sketch.Camera;
 
 public class Sketch extends PApplet {
 
@@ -10,6 +9,7 @@ public class Sketch extends PApplet {
     AI ai; //This will probibly be a useless class so it can fuck off
     Hud hud;
     Camera camera;
+    Mouse mouse;
 
     boolean keys[];
     int cameraSpeed;
@@ -20,14 +20,18 @@ public class Sketch extends PApplet {
         fullScreen();
     }
 
+
     public void setup() {
         frameRate(60);
 
         world = new World(this);
-        hud = new Hud(this, width, height);
+        camera = new Camera(this, width, height);
+        mouse = new Mouse(this);
+
         world.setup();
 
-        camera = new Camera(this, width, height);
+        hud = new Hud(this, world.players.get(0), width, height);
+
         keys = new boolean[4];
         cameraSpeed = 3; //Speeds the camera moves
     }
@@ -37,13 +41,13 @@ public class Sketch extends PApplet {
         background(255);
 
         //Camera stuff
-        pushMatrix();
+        pushMatrix(); //Opens Matrix
         updateCamera();
         translate(-camera.pos.x, -camera.pos.y);
 
         //World stuff
         world.draw();
-        popMatrix();
+        popMatrix(); //Closes Matrix
 
         //Hud stuff
         hud.update();
@@ -57,6 +61,7 @@ public class Sketch extends PApplet {
 
 
 
+    //TODO This should be in a new key functions and add hot keys when I do this.
     public void keyPressed() {
         switch (key) {
             case 'w':
@@ -73,6 +78,7 @@ public class Sketch extends PApplet {
                 break;
         }
     }
+
 
     public void keyReleased() {
         switch (key) {
@@ -91,12 +97,12 @@ public class Sketch extends PApplet {
         }
     }
 
+
     void updateCamera() {
         if (keys[0] == true) camera.pos.y -= cameraSpeed;
         if (keys[1] == true) camera.pos.x -= cameraSpeed;
         if (keys[2] == true) camera.pos.y += cameraSpeed;
         if (keys[3] == true) camera.pos.x += cameraSpeed;
     }
-
 }
 

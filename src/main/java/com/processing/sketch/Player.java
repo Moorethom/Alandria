@@ -34,8 +34,8 @@ public class Player {
         this.playerCol = c;
         this.p = p;
         resources.add(new Food(p, this));
-        resources.add(new Metal(p, this));
         resources.add(new Wealth(p, this));
+        resources.add(new Metal(p, this));
         research = new Research(p);
 
 

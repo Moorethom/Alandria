@@ -11,7 +11,8 @@ public class World {
     private final PApplet p;
 
     private int numberOfPlayers = 1;
-    ArrayList<Player> players = new ArrayList<Player>();
+    public ArrayList<Player> players = new ArrayList<Player>();
+
     Color[] colors = new Color[8];
 
     public World(PApplet p) {
@@ -24,7 +25,7 @@ public class World {
             players.add(new Player(p,colors[i])); //This is for testing only
         }
         p.background(255);
-        p.rectMode(p.CENTER);
+        //p.rectMode(p.CENTER); //sets center if needed
     }
 
     void draw() {

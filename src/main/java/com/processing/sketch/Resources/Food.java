@@ -28,7 +28,7 @@ public class Food extends Resource {
     }
     
     public void applyFoodDebuff(){
-        //this is a simple modifier 
+        //this is a simple modifier
     }
 
     public void addWealth(double food) {
@@ -39,7 +39,6 @@ public class Food extends Resource {
         double tempMod;
         tempMod = player.research.activeFoodResearch();
         //calls a function inside the structures to check what food structures are active and there output then times it by the tempMod
-
     }
 
 }

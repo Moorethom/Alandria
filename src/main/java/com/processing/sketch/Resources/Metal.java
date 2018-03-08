@@ -21,7 +21,6 @@ public class Metal extends Resource {
         double tempMod;
         tempMod = player.research.activeMetalResearch();
         //calls a function inside the structures to check what metal structures are active and there output then times it by the tempMod
-
     }
 
 
