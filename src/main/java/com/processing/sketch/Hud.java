@@ -18,6 +18,9 @@ public class Hud {
     private int popTemp;
     private Player player;
 
+    public boolean toggleBuildings;
+    public boolean toggleResearch;
+
     private ArrayList<Resource> resourcesTemp = new ArrayList<Resource>();  //0 = food, 1 = wealth, 2 = metal
 
     Hud(PApplet p, Player player, int width, int height) {
@@ -26,6 +29,9 @@ public class Hud {
         this.height = height;
         this.player = player;
         this.resourcesTemp = player.resources;
+
+        toggleBuildings = false;
+        toggleResearch = false;
 
 //        font = p.createFont("RobotoCondensed-Regular.ttf", 64, false);
         font = p.createFont("Arial", 64, false);
@@ -38,14 +44,16 @@ public class Hud {
         p.rect(0,0,width/10,height/16);
         p.rect(width/10,0,(width/10),height/16);
 
-        //Draws the resources values
+        //Sets and the font and colors
         p.textFont(font);
         p.fill(0);
         p.textSize(32);
 
-        p.text("Buildings", 25, height /24);
-        p.text("Research", 32+(width/10),height/24);
+        //Draws the text for the research and buildings boxes
+        p.text("Buildings", 32, height /24);
+        p.text("Research", 30+(width/10),height/24);
 
+        //Sets the resource values for the specific associated resource
         p.text("Food: " + convertFloat(foodTemp), 32+(width / 10)*2, (height / 24));
         p.text("Wealth: " + convertFloat(wealthTemp), (width / 10)*3, (height / 24));
         p.text("Metal: " + convertFloat(metalTemp), (width / 10)*4, (height / 24));
@@ -61,5 +69,7 @@ public class Hud {
     public String convertFloat(Float f) {
         return String.format("%.0f", f);
     }
+
+
 
 }

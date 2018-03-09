@@ -109,5 +109,11 @@ public class Sketch extends PApplet {
         if (keys[2] == true) camera.pos.y += cameraSpeed;
         if (keys[3] == true) camera.pos.x += cameraSpeed;
     }
+
+
+    public void mouseClicked() {
+        mouse.mouseColl(mouseX, mouseY);
+        //println(mouseX, mouseY); //Debugging and testing only
+    }
 }
 
