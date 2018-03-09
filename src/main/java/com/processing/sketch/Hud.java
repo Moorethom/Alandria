@@ -15,7 +15,7 @@ public class Hud {
     private float wealthTemp;
     private float metalTemp;
     private float foodTemp;
-    private int popTemp;
+
     private Player player;
 
     public boolean toggleBuildings;
@@ -41,8 +41,10 @@ public class Hud {
         //p.rectMode(p.CORNER); //Sets CORNER mode if needed
 
         p.rect(0, 0, width, height / 16);  // This draws the Hud frame
-        p.rect(0,0,width/10,height/16);
-        p.rect(width/10,0,(width/10),height/16);
+
+        //Draws the boxes for the height and research
+        p.rect(0,0, width/10, height/16);
+        p.rect(width/10, 0,(width/10), height/16);
 
         //Sets and the font and colors
         p.textFont(font);
@@ -71,5 +73,11 @@ public class Hud {
     }
 
 
+    public void toggleBuildings() {
+        toggleBuildings ^= true;
+    }
 
+    public void toggleResearch() {
+        toggleResearch ^= true;
+    }
 }
