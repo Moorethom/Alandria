@@ -33,7 +33,7 @@ public class Sketch extends PApplet {
         hud = new Hud(this, world.players.get(0), width, height);
 
         keys = new boolean[4];
-        cameraSpeed = 3; //Speeds the camera moves
+        cameraSpeed = 10; //Speeds the camera moves
 
         text("hello",(width/2),(height/5));
 

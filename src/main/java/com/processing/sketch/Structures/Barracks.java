@@ -2,12 +2,12 @@ package com.processing.sketch.Structures;
 
 import processing.core.PApplet;
 
-public class House extends Structure{
+public class Barracks extends Structure{
 
-    int width = 40;
-    int height = 40;
+    int width = 80;
+    int height = 80;
 
-    public House(PApplet p, int xPos, int yPos) {
+    public Barracks(PApplet p, int xPos, int yPos) {
         super(p, xPos, yPos);
     }
 

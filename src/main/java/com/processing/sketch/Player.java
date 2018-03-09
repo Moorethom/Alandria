@@ -29,10 +29,13 @@ public class Player {
 
     public Color playerCol; //Player color
 
+    public int mapSize;
 
-    public Player(PApplet p, Color c) {
+
+    public Player(PApplet p, Color c, int mapSize) {
         this.playerCol = c;
         this.p = p;
+        this.mapSize = mapSize;
         resources.add(new Food(p, this));
         resources.add(new Wealth(p, this));
         resources.add(new Metal(p, this));
@@ -42,9 +45,9 @@ public class Player {
         //This is for testing only
 
         //units.add(new FootMan(p, 500,500,0,this));
-        units.add(new Workless(p, 0, 0, 0, this));
-        units.add(new Workless(p, 0, 0, 0, this));
-        units.add(new Workless(p, 0, 0, 0, this));
+        units.add(new Workless(p, 0, 10, 0, this));
+        units.add(new Workless(p, 100, 10, 0, this));
+        units.add(new Workless(p, 300, 10, 0, this));
         //pStructures.add(new House(p,100,100));
 
     }
