@@ -9,8 +9,8 @@ public abstract class Civ extends Unit {
     public PApplet p;
 
 
-    public Civ(PApplet p, int xPos, int yPos, int type, Player player) {
-        super(p, xPos, yPos, type, player);
+    public Civ(PApplet p, int xPos, int yPos, Player player) {
+        super(p, xPos, yPos, player);
         this.p = p;
     }
 

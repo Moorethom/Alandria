@@ -4,8 +4,8 @@ import processing.core.PApplet;
 
 public class Capital extends Structure{
 
-    int width = 120;
-    int height = 120;
+    int width = 200;
+    int height = 200;
 
     public Capital(PApplet p, int xPos, int yPos) {
         super(p, xPos, yPos);

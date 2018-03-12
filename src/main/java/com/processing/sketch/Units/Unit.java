@@ -29,11 +29,10 @@ public abstract class Unit {
 
 
 
-    public Unit(PApplet p, int xPos, int yPos, int type, Player player) {
+    public Unit(PApplet p, int xPos, int yPos, Player player) {
         pos = new PVector(xPos, yPos);
         vel = new PVector(0, 0);
         accel = new PVector(0, 0);
-        this.unitType = type;
         this.p = p;
         this.player = player;
         age = 0;

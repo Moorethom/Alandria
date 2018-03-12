@@ -7,8 +7,8 @@ public abstract class Mil extends Unit {
 
     public PApplet p;
 
-    public Mil(PApplet p, int xPos, int yPos, int type, Player player) {
-        super(p, xPos, yPos, type, player);
+    public Mil(PApplet p, int xPos, int yPos, Player player) {
+        super(p, xPos, yPos,player);
         this.p = p;
     }
 

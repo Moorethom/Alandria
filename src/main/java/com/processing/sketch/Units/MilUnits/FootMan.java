@@ -7,8 +7,8 @@ public class FootMan extends Mil {
 
     public PApplet p;
 
-    public FootMan(PApplet p, int xPos, int yPos, int type, Player player) {
-        super(p, xPos, yPos, type, player);
+    public FootMan(PApplet p, int xPos, int yPos, Player player) {
+        super(p, xPos, yPos, player);
         this.p = p;
     }
 

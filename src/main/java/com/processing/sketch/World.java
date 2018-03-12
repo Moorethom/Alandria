@@ -16,8 +16,6 @@ public class World {
     WorldGen worldGen;
     int mapSize;
 
-    Color[] colors = new Color[8];
-
 
     public World(PApplet p) {
         this.p = p;
@@ -30,10 +28,8 @@ public class World {
 
         worldGen.worldGeneration(); //Creates the world
 
-        setColors(); //This will probibly be a useless function but is useful in testing
-
         for(int i = 0; i<=numberOfPlayers; i++) { //This is the main for loop for creating the number of players in the game
-            players.add(new Player(p,colors[i],mapSize)); //This is for testing but is needed to setup at least one player
+            players.add(new Player(p, mapSize,i)); //This is for testing but is needed to setup at least one player
         }
 
         //p.rectMode(p.CENTER); //sets center if needed
@@ -47,18 +43,6 @@ public class World {
             play.draw();
         }
     }
-
-    void setColors(){
-        colors[0] = (Color.red);
-        colors[1] = (Color.blue);
-        colors[2] = (Color.green);
-        colors[3] = (Color.orange);
-        colors[4] = (Color.cyan);
-        colors[5] = (Color.yellow);
-        colors[6] = (Color.magenta);
-        colors[7] = (Color.white);
-    }
-
 
 }
 
@@ -85,4 +69,5 @@ class WorldGen {
         p.fill(255);
         p.rect(initialStart,initialStart,mapSize,mapSize);
     }
+
 }

@@ -46,11 +46,13 @@ public class Sketch extends PApplet {
 
         //Camera stuff
         pushMatrix(); //Opens Matrix
-        updateCamera();
+
+        updateCamera(); //moves the camera around
         translate(-camera.pos.x, -camera.pos.y);
 
         //World stuff
         world.draw();
+
         popMatrix(); //Closes Matrix
 
         //Hud stuff
