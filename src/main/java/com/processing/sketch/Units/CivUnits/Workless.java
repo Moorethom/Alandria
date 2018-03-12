@@ -8,6 +8,7 @@ public class Workless extends Civ {
 
     public Workless(PApplet p, int xPos, int yPos,  Player player) {
         super(p, xPos, yPos, player);
+        health = 100;
     }
 
 }

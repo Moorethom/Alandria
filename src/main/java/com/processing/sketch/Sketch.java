@@ -38,6 +38,7 @@ public class Sketch extends PApplet {
         text("hello",(width/2),(height/5));
 
 
+
     }
 
 
@@ -106,10 +107,10 @@ public class Sketch extends PApplet {
 
 
     void updateCamera() {
-        if (keys[0] == true) camera.pos.y -= cameraSpeed;
-        if (keys[1] == true) camera.pos.x -= cameraSpeed;
-        if (keys[2] == true) camera.pos.y += cameraSpeed;
-        if (keys[3] == true) camera.pos.x += cameraSpeed;
+        if (keys[0]) camera.pos.y -= cameraSpeed;
+        if (keys[1]) camera.pos.x -= cameraSpeed;
+        if (keys[2]) camera.pos.y += cameraSpeed;
+        if (keys[3]) camera.pos.x += cameraSpeed;
     }
 
 
@@ -119,4 +120,40 @@ public class Sketch extends PApplet {
     }
 
 }
+
+/* cheat code names
+Food: sweet roll
+Wealth: Studylink
+Metal: motherload
+
+Instant Research: all nighter
+All research: elon musk
+
+Kill Unit (selected): vaccinate
+
+Kill AI (Number): corrupted blood(i)
+
+Change to differn't player: el presidente
+
+Reveal Map: CIA
+
+Instant Unit creation: sonic
+
+Kick player: FCC
+
+Remove Unit age limit: Australium
+
+Hidden Cheats:
+
+bug hunt: Spawns a starShip Trooper
+big bug: Spawns an Arachnid
+
+sea shanty: Spawns a trooper with a rune scimmy
+
+photon bird: Spawns a lazer kiwi
+
+oh shit waddup: spawns a dat boi
+
+
+ */
 

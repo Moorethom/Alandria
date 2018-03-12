@@ -27,6 +27,7 @@ public abstract class Unit {
     public Player player;
     public int col;
 
+    public int health;
 
 
     public Unit(PApplet p, int xPos, int yPos, Player player) {
@@ -38,7 +39,6 @@ public abstract class Unit {
         age = 0;
         getMaxAge();
         col = p.color(255,255,255);
-
     }
 
     private void getMaxAge() {
@@ -47,15 +47,14 @@ public abstract class Unit {
 
     public void update() {
         growOlder();
-        p.fill(col);
-
         vel.add(accel);
         pos.add(vel);
         accel.mult(0);
     }
 
     public boolean checkIfDead() {
-        return age >= maxAge;
+        if(health <= 0) return true; //checks if the unit is below 0 health
+        return age >= maxAge; //checks if the unit is older than it should be
     }
 
     protected void growOlder() {

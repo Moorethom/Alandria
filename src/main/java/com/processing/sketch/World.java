@@ -2,7 +2,6 @@ package com.processing.sketch;
 
 import processing.core.PApplet;
 
-import java.awt.*;
 import java.util.ArrayList;
 
 public class World {
@@ -36,12 +35,29 @@ public class World {
     }
 
     void draw() {
-        worldGen.draw();
+        worldGen.draw(); //Draws the world created
+
+        int count = 0; //Testing
 
         if (players == null) return;
         for (Player play : players) { //Main for loop for drawing the players
+            p.fill(getColor(count)); //Testing
             play.draw();
+            count++; //Testing
         }
+    }
+
+    public int getColor(int pTNumber){
+        int pNumber = pTNumber;
+        if(pNumber == 0)return p.color(255,0,0); //Red
+        if(pNumber == 1)return p.color(0,0,255); //Blue
+        if(pNumber == 2)return p.color(0,255,0); //Green
+        if(pNumber == 3)return p.color(255,128,0); //Orange
+        if(pNumber == 4)return p.color(0,255,255); //Cyan
+        if(pNumber == 5)return p.color(255,255,0); //Yellow
+        if(pNumber == 6)return p.color(255,0,128); //Pink
+        if(pNumber == 7)return p.color(128,128,128); //Grey
+        return 0;
     }
 
 }

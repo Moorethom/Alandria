@@ -66,6 +66,8 @@ public class Hud {
     public void draw() {
         //p.rectMode(p.CORNER); //Sets CORNER mode if needed
 
+        p.fill(255);
+
         p.rect(0, 0, width, heightDi);  // This draws the Hud frame
 
         //Draws the boxes for the height and research
