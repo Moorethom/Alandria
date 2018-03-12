@@ -25,7 +25,7 @@ public class Player {
 
     private double newPop = 0; //1 = new pop
 
-    public double deathTime = 0.002; //The rate at which units age
+    public double deathTime = 0.0002; //The rate at which units age
 
     public Color playerCol; //Player color
 

@@ -15,8 +15,8 @@ public abstract class Unit {
     public PVector vel;
     public PVector accel;
 
-    public float mass = 1;
-    public float maxSpeed = 30;
+    public double mass = 1;
+    public double maxSpeed = 30;
 
     public int unitType;
 
@@ -65,9 +65,9 @@ public abstract class Unit {
 
     void applyForce(PVector force) {
 
-        force.limit(maxSpeed);
+        force.limit((float)maxSpeed);
 
-        PVector f = PVector.div(force, mass);
+        PVector f = PVector.div(force, (float)mass);
         accel.add(f);
     }
 

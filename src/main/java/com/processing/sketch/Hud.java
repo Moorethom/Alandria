@@ -12,9 +12,9 @@ public class Hud {
     PFont font;
     private int width;
     private int height;
-    private float wealthTemp;
-    private float metalTemp;
-    private float foodTemp;
+    private double wealthTemp;
+    private double metalTemp;
+    private double foodTemp;
 
     private Player player;
 
@@ -59,8 +59,8 @@ public class Hud {
 //        font = p.createFont("RobotoCondensed-Regular.ttf", 64, false);
         font = p.createFont("Arial", 64, false);
 
-        widthDi = width/10; //Commonly used width Dimension
-        heightDi = height/16; //Commonly used height Dimension
+        widthDi = width / 10; //Commonly used width Dimension
+        heightDi = height / 16; //Commonly used height Dimension
     }
 
     public void draw() {
@@ -69,19 +69,19 @@ public class Hud {
         p.rect(0, 0, width, heightDi);  // This draws the Hud frame
 
         //Draws the boxes for the height and research
-        p.rect(0,0, widthDi, heightDi);
-        p.rect(width/10, 0,widthDi, heightDi);
+        p.rect(0, 0, widthDi, heightDi);
+        p.rect(width / 10, 0, widthDi, heightDi);
 
-        if(toggleBuildings){
+        if (toggleBuildings) {
             drawBuildingsTab();
             p.println("occur");
-        } else if(toggleResearch){
+        } else if (toggleResearch) {
             drawResearchTab();
-        } else if(toggleBMilitaryTab){
+        } else if (toggleBMilitaryTab) {
             drawMilTab();
-        } else if(toggleBCivilianTab){
+        } else if (toggleBCivilianTab) {
             drawCivTab();
-        } else if(toggleBProductionTab){
+        } else if (toggleBProductionTab) {
             drawProdTab();
         }
 
@@ -94,14 +94,14 @@ public class Hud {
 
         p.fill(0);
         //Draws the text for the research and buildings boxes
-        p.text("Buildings", 32, height /24);
-        p.text("Research", 30+widthDi, height/24);
+        p.text("Buildings", 32, height / 24);
+        p.text("Research", 30 + widthDi, height / 24);
 
         //Sets the resource values for the specific associated resource
-        p.text("Food: " + convertFloat(foodTemp), 32+widthDi*2, (height / 24));
-        p.text("Wealth: " + convertFloat(wealthTemp), widthDi*3, (height / 24));
-        p.text("Metal: " + convertFloat(metalTemp), widthDi*4, (height / 24));
-        p.text("Pop: " + player.getPopulation(), widthDi*5, (height / 24));
+        p.text("Food: " + convertDouble(foodTemp), 32 + widthDi * 2, (height / 24));
+        p.text("Wealth: " + convertDouble(wealthTemp), widthDi * 3, (height / 24));
+        p.text("Metal: " + convertDouble(metalTemp), widthDi * 4, (height / 24));
+        p.text("Pop: " + player.getPopulation(), widthDi * 5, (height / 24));
 
         p.popMatrix();
     }
@@ -112,81 +112,80 @@ public class Hud {
         metalTemp = resourcesTemp.get(2).getAmount();
     }
 
-    public String convertFloat(Float f) {
+    public String convertDouble(Double f) {
         return String.format("%.0f", f);
     }
 
 
     //Tab Drawings are here
-    public void drawBuildingsTab(){
+    public void drawBuildingsTab() {
         p.fill(255);
-        p.rect(0,heightDi,widthDi,heightDi); //Could use a for loop here but it might slow down the code for no real need
-        p.rect(0,heightDi*2,widthDi,heightDi);
-        p.rect(0,heightDi*3,widthDi,heightDi);
+        p.rect(0, heightDi, widthDi, heightDi); //Could use a for loop here but it might slow down the code for no real need
+        p.rect(0, heightDi * 2, widthDi, heightDi);
+        p.rect(0, heightDi * 3, widthDi, heightDi);
 
         p.fill(0);
-        p.text("Production",32,(heightDi)+46);
-        p.text("Civilian",32,(heightDi*2)+46);
-        p.text("Military",32,(heightDi*3)+46);
+        p.text("Production", 32, (heightDi) + 46);
+        p.text("Civilian", 32, (heightDi * 2) + 46);
+        p.text("Military", 32, (heightDi * 3) + 46);
 
     }
 
-    public void drawResearchTab(){
+    public void drawResearchTab() {
 
     }
 
-    public void drawMilTab(){ //Miitary Tab Draws here
+    public void drawMilTab() { //Miitary Tab Draws here
         p.fill(255);
-        p.rect(0,heightDi,widthDi,heightDi);
-        p.rect(0,heightDi*2,widthDi,heightDi);
-        p.rect(0,heightDi*3,widthDi,heightDi);
+        p.rect(0, heightDi, widthDi, heightDi);
+        p.rect(0, heightDi * 2, widthDi, heightDi);
+        p.rect(0, heightDi * 3, widthDi, heightDi);
 
         p.fill(0);
-        p.text("Barracks",32,(heightDi)+46);
-        p.text("Stable",32,(heightDi*2)+46);
-        p.text("Training",32,(heightDi*3)+30);
-        p.text("Ground",32,(heightDi*3)+60);
-    }
+        p.text("Barracks", 32, (heightDi) + 46);
+        p.text("Stable", 32, (heightDi * 2) + 46);
+        p.text("Training", 32, (heightDi * 3) + 30);
+        p.text("Ground", 32, (heightDi * 3) + 60);
+    } //Draws the military Tab
 
-    public void drawCivTab(){ //Civilian Tab Draws here
-        p.rect(0,heightDi,widthDi,heightDi);
-        p.rect(0,heightDi*2,widthDi,heightDi);
-        p.rect(0,heightDi*3,widthDi,heightDi);
-        p.rect(0,heightDi*4,widthDi,heightDi);
-        p.rect(0,heightDi*5,widthDi,heightDi);
-        p.rect(0,heightDi*6,widthDi,heightDi);
+    public void drawCivTab() { //Civilian Tab Draws here
+        p.rect(0, heightDi, widthDi, heightDi);
+        p.rect(0, heightDi * 2, widthDi, heightDi);
+        p.rect(0, heightDi * 3, widthDi, heightDi);
+        p.rect(0, heightDi * 4, widthDi, heightDi);
+        p.rect(0, heightDi * 5, widthDi, heightDi);
+        p.rect(0, heightDi * 6, widthDi, heightDi);
 
         p.fill(0);
-        p.text("House",32,(heightDi)+46);
-        p.text("Capital",32,(heightDi*2)+46);
-        p.text("University",32,(heightDi*3)+46);
-        p.text("School",32,(heightDi*4)+46);
-        p.text("Market",32,(heightDi*5)+46);
-        p.text("City",32,(heightDi*6)+30);
-        p.text("Center",32,(heightDi*6)+60);
-    }
-    public void drawProdTab(){ //Production Tab Draws here
+        p.text("House", 32, (heightDi) + 46);
+        p.text("Capital", 32, (heightDi * 2) + 46);
+        p.text("University", 32, (heightDi * 3) + 46);
+        p.text("School", 32, (heightDi * 4) + 46);
+        p.text("Market", 32, (heightDi * 5) + 46);
+        p.text("City", 32, (heightDi * 6) + 30);
+        p.text("Center", 32, (heightDi * 6) + 60);
+    } //Draws the Civilian Tab
+
+    public void drawProdTab() { //Production Tab Draws here
         p.fill(255);
-        p.rect(0,heightDi,widthDi,heightDi);
-        p.rect(0,heightDi*2,widthDi,heightDi);
-        p.rect(0,heightDi*3,widthDi,heightDi);
-        p.rect(0,heightDi*4,widthDi,heightDi);
+        p.rect(0, heightDi, widthDi, heightDi);
+        p.rect(0, heightDi * 2, widthDi, heightDi);
+        p.rect(0, heightDi * 3, widthDi, heightDi);
+        p.rect(0, heightDi * 4, widthDi, heightDi);
 
         p.fill(0);
-        p.text("Farm",32,(heightDi)+46);
-        p.text("Smith",32,(heightDi*2)+46);
-        p.text("Engineering",32,(heightDi*3)+30);
-        p.text("Bay",32,(heightDi*3)+60);
-        p.text("Mine",32,(heightDi*4)+46);
-    }
-
+        p.text("Farm", 32, (heightDi) + 46);
+        p.text("Smith", 32, (heightDi * 2) + 46);
+        p.text("Engineering", 32, (heightDi * 3) + 30);
+        p.text("Bay", 32, (heightDi * 3) + 60);
+        p.text("Mine", 32, (heightDi * 4) + 46);
+    } //Draws the Production Tab
 
 
     //Change Toggles are here
-    public boolean flipToggle(boolean toggle){
-        return toggle^=true;
+    public boolean flipToggle(boolean toggle) {
+        return toggle ^= true;
     }
-
 
     //Hud
     public void toggleBuildings() {
@@ -206,10 +205,12 @@ public class Hud {
         toggleBMilitaryTab = flipToggle(toggleBMilitaryTab);
         toggleBuildings = flipToggle(toggleBuildings);
     }
+
     public void productionTab() {
         toggleBProductionTab = flipToggle(toggleBProductionTab);
         toggleBuildings = flipToggle(toggleBuildings);
     }
+
     public void civilianTab() {
         toggleBCivilianTab = flipToggle(toggleBCivilianTab);
         toggleBuildings = flipToggle(toggleBuildings);
@@ -220,54 +221,65 @@ public class Hud {
         toggleHouse = flipToggle(toggleHouse);
         toggleBCivilianTab = flipToggle(toggleBCivilianTab);
     }
+
     public void tCapital() {
         toggleCapital = flipToggle(toggleCapital);
         toggleBCivilianTab = flipToggle(toggleBCivilianTab);
     }
+
     public void tBarracks() {
         toggleBarracks = flipToggle(toggleBarracks);
         toggleBMilitaryTab = flipToggle(toggleBMilitaryTab);
     }
+
     public void tFarm() {
         toggleFarm = flipToggle(toggleFarm);
         toggleBProductionTab = flipToggle(toggleBProductionTab);
     }
+
     public void tUniversity() {
         toggleUniversity = flipToggle(toggleUniversity);
         toggleBCivilianTab = flipToggle(toggleBCivilianTab);
     }
+
     public void tSchool() {
         toggleSchool = flipToggle(toggleSchool);
         toggleBCivilianTab = flipToggle(toggleBCivilianTab);
     }
+
     public void tMarket() {
         toggleMarket = flipToggle(toggleMarket);
         toggleBCivilianTab = flipToggle(toggleBCivilianTab);
     }
+
     public void tSmith() {
         toggleSmith = flipToggle(toggleSmith);
         toggleBProductionTab = flipToggle(toggleBProductionTab);
     }
+
     public void tEngineeringBay() {
         toggleEngineeringBay = flipToggle(toggleEngineeringBay);
         toggleBProductionTab = flipToggle(toggleBProductionTab);
     }
+
     public void tStable() {
         toggleStable = flipToggle(toggleStable);
         toggleBMilitaryTab = flipToggle(toggleBMilitaryTab);
     }
+
     public void tTrainingGround() {
         toggleTrainingGround = flipToggle(toggleTrainingGround);
         toggleBMilitaryTab = flipToggle(toggleBMilitaryTab);
     }
+
     public void tCityCenter() {
         toggleCityCenter = flipToggle(toggleCityCenter);
         toggleBCivilianTab = flipToggle(toggleBCivilianTab);
     }
+
     public void tMine() {
         toggleMine = flipToggle(toggleMine);
         toggleBProductionTab = flipToggle(toggleBProductionTab);
     }
-
 
 }

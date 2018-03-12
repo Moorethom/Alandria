@@ -115,5 +115,6 @@ public class Sketch extends PApplet {
         mouse.mouseColl(mouseX, mouseY, hud, width, height);
         //println(mouseX, mouseY); //Debugging and testing only
     }
+
 }
 

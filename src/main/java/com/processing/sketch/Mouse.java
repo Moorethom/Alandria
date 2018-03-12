@@ -32,6 +32,7 @@ public class Mouse {
         heightDi = heightTemp/16; //Commonly Used height variable
         widthDi = widthTemp/10; //Commonly Used Width variable
 
+        //HUD stuff here
         if (mouseY <= heightTemp / 16) { //if the mouse is clicked in the Top hud
 
             if (mouseX > 0 && mouseX <= widthDi) {  //This is for checking when no tabs are open
@@ -42,9 +43,7 @@ public class Mouse {
                 hudTemp.toggleResearch(); //Turns the display on/off for the Research box
                 //p.println("Research"); //Testing
             }
-        }
-
-        if (mouseX > 0 && mouseX <= widthDi) { //This is for an open building Tab
+        } else if (mouseX > 0 && mouseX <= widthDi) { //This is for an open building Tab
             if(hudTemp.toggleBuildings){ //Checks if the building Hud is open
 
                 if(mouseY > heightDi && mouseY <= heightDi*2){ //Production tab check
@@ -91,7 +90,7 @@ public class Mouse {
                 }
 
             }
-        }
+        } //else if (){ //Checking if a building or unit is clicked on here
 
     }
 }
