@@ -15,6 +15,11 @@ public class Mouse {
     private int heightDi;
     private int widthDi;
 
+    public boolean draggedMouse;
+
+    private int tempBoxX;
+    private int tempBoxY;
+
     public Mouse(PApplet p) {
         this.p = p;
     }
@@ -93,4 +98,11 @@ public class Mouse {
         } //else if (){ //Checking if a building or unit is clicked on here
 
     }
+
+    void mouseDrag(int mouseTX, int mouseTY,Hud hud){
+        if(draggedMouse==false){tempBoxX = mouseTX; tempBoxY = mouseTY;}
+        draggedMouse = true;
+        hud.drawTempBox(tempBoxX,tempBoxY,mouseTX, mouseTY);
+    }
+
 }

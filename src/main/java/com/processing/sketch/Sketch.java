@@ -30,7 +30,7 @@ public class Sketch extends PApplet {
 
         world.setup();
 
-        hud = new Hud(this, world.players.get(0), width, height);
+        hud = new Hud(this, world.players.get(0),mouse, width, height);
 
         keys = new boolean[4];
         cameraSpeed = 10; //Speeds the camera moves
@@ -119,6 +119,15 @@ public class Sketch extends PApplet {
         //println(mouseX, mouseY); //Debugging and testing only
     }
 
+    public void mouseDragged() {
+        mouse.mouseDrag(mouseX, mouseY,hud);
+    }
+
+
+    public void mouseReleased() {
+        mouse.draggedMouse = false;
+    }
+
 }
 
 /* cheat code names
@@ -127,6 +136,7 @@ Wealth: Studylink
 Metal: motherload
 
 Instant Research: all nighter
+
 All research: elon musk
 
 Kill Unit (selected): vaccinate
@@ -139,7 +149,11 @@ Reveal Map: CIA
 
 Instant Unit creation: sonic
 
-Kick player: FCC
+instant win: putin
+
+Kick player(number): FCC(i)
+
+instant lose: university
 
 Remove Unit age limit: Australium
 
@@ -153,7 +167,6 @@ sea shanty: Spawns a trooper with a rune scimmy
 photon bird: Spawns a lazer kiwi
 
 oh shit waddup: spawns a dat boi
-
 
  */
 

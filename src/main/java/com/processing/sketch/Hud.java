@@ -17,7 +17,15 @@ public class Hud {
     private double foodTemp;
 
     private Player player;
+    private Mouse mouse;
 
+    //Drawing the player selection rect
+    int tempBoxX;
+    int tempBoxY;
+    int mouseTX;
+    int mouseTY;
+
+    //Toggles
     public boolean toggleResearch;
     public boolean toggleBuildings;
     //Building Tabs
@@ -46,12 +54,13 @@ public class Hud {
 
     private ArrayList<Resource> resourcesTemp = new ArrayList<Resource>();  //0 = food, 1 = wealth, 2 = metal
 
-    Hud(PApplet p, Player player, int width, int height) {
+    Hud(PApplet p, Player player,Mouse mouse, int width, int height) {
         this.p = p;
         this.width = width;
         this.height = height;
         this.player = player;
         this.resourcesTemp = player.resources;
+        this.mouse = mouse;
 
         toggleBuildings = false;
         toggleResearch = false;
@@ -73,6 +82,8 @@ public class Hud {
         //Draws the boxes for the height and research
         p.rect(0, 0, widthDi, heightDi);
         p.rect(width / 10, 0, widthDi, heightDi);
+
+        if(mouse.draggedMouse){p.noFill();p.rect(tempBoxX,tempBoxY,mouseTX-tempBoxX,mouseTY-tempBoxY);}
 
         if (toggleBuildings) {
             drawBuildingsTab();
@@ -116,6 +127,13 @@ public class Hud {
 
     public String convertDouble(Double f) {
         return String.format("%.0f", f);
+    }
+
+    public void drawTempBox(int tempBoxX, int tempBoxY, int mouseTX, int mouseTY) {
+        this.tempBoxX = tempBoxX;
+        this.tempBoxY = tempBoxY;
+        this.mouseTX = mouseTX;
+        this.mouseTY = mouseTY;
     }
 
 

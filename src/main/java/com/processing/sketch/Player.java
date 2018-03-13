@@ -107,7 +107,7 @@ public class Player {
     public void createNewPop() {
         if (newPop >= 1) {
             newPop--;
-            units.add(new Workless(p, startingXPos+(int)p.random(-25,275), startingYPos+((int)p.random(220,275)),this)); //TODO change the create new pop to captial building position
+            units.add(new Workless(p, startingXPos+(int)p.random(-25,275), startingYPos+((int)p.random(220,275)),this));
         }
     }
 
